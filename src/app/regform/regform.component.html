@@ -1,0 +1,30 @@
+<h6>Ilmoittautumislomake</h6>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value, f.valid!)" novalidate>
+  <div class="mb-4">
+    <label for="nimi" class="form-label">Nimi:</label>
+    <input #name="ngModel" type="text" class="form-control" id="nimi" name="name" ngModel required minlength="3">
+    <span [hidden]="!f.form.hasError('required', 'name')||name.pristine">Nimi vaaditaan</span>
+    <span [hidden]="!f.form.hasError('minlength', 'name')||name.pristine">Nimi on liian lyhyt</span>
+  </div>
+  <div class="mb-4">
+    <label for="email" class="form-label">Email:</label>
+    <input #email="ngModel" type="email" class="form-control" id="email" name="email" ngModel required email>
+    <span [hidden]="!f.form.hasError('required', 'email')||email.pristine">Sähköpostiosoite vaaditaan</span>
+    <span [hidden]="!f.form.hasError('email', 'email')||email.pristine">Sähköpostiosoite ei ole kelvollinen</span>
+  </div>
+  <div class="mb-4">
+    <label for="ruoka">Ruoka:</label>
+    <select #food="ngModel" class="form-select" id="ruoka" name="food" ngModel required>
+      <option value="" disabled selected>Valitse ruoka...</option>
+      <option value="Liha">Liha</option>
+      <option value="Kala">Kala</option>
+      <option value="Kasvis">Kasvis</option>
+    </select>
+  </div>
+  <div class="mb-4 form-check">
+    <input type="checkbox" class="form-check-input" id="sauna" name="sauna" ngModel>
+    <label class="form-check-label" for="sauna">Osallistun saunailtaan</label>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Lähetä</button>
+</form>

@@ -1,0 +1,22 @@
+<h6>Ilmoittautuneet</h6>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nimi</th>
+      <th scope="col">Email</th>
+      <th scope="col">Ruoka</th>
+      <th scope="col">Sauna</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reg of regs">
+      <th scope="row">{{reg.id}}</th>
+      <td>{{reg.name}}</td>
+      <td>{{reg.email}}</td>
+      <td>{{reg.food}}</td>
+      <td>{{reg.sauna}}</td>
+    </tr>
+  </tbody>
+</table>

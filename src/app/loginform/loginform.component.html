@@ -1,0 +1,18 @@
+<h6>Sisäänkirjautuminen</h6>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value, f.valid!)" novalidate>
+  <div class="mb-4">
+    <label for="username" class="form-label">Tunnus:</label>
+    <input #username="ngModel" type="text" class="form-control" id="username" name="username" ngModel required>
+    <span [hidden]="!f.form.hasError('required', 'username')||username.pristine">Anna käyttäjätunnus</span>
+  </div>
+  <div class="mb-4">
+    <label for="password" class="form-label">Salasana:</label>
+    <input #password="ngModel" type="password" class="form-control" id="password" name="password" ngModel required>
+    <span [hidden]="!f.form.hasError('required', 'password')||password.pristine">Anna salasana</span>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Lähetä</button>
+</form>
+<div *ngIf="errorMsg" class="alert alert-danger mt-4" role="alert">
+  {{errorMsg}}
+</div>
