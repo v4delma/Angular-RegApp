@@ -28,6 +28,6 @@ ja
 npm start
 ```
 
-Kirjaudu sovellukseen testitunnuksilla:
-Tunnus: teppo
+Kirjaudu sovellukseen testitunnuksilla:\
+Tunnus: teppo\
 Salasana: testaa
